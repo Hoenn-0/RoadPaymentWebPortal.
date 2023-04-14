@@ -1,0 +1,85 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "login";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/css/base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+</head>
+<body>
+    <main id="main-holder">
+    <h1>Login Here</h1>
+
+    
+            <form asp-page-handler="login" method="post" autocomplete="off">
+
+
+            <div class="imgcontainer">
+                   
+                <img src="~/images/settings.png" alt="Setting" class="setting" onclick="togglePopup()">
+            </div>
+
+             <div class="popup" id="popup-1">
+                <div class="overlay"></div>
+                    <div class="content">
+                        <div class="close-btn" onclick="togglePopup()">&times;</div>
+                        <h1>Settings</h1>
+                        <dl>
+                            <dt><label for="font size"><b>Change font size</b></label></dt>
+                            <dd><select name="Font Size" id="Font Size">
+                                  <option value="large">Large</option>
+                                  <option value="medium">Medium</option>
+                                  <option value="small">Small</option>
+                                </select></dd>
+                            <dt><label for="Language"><b>Change Language</b></label></dt>
+                            <dd><select name="Font Size" id="Font Size">
+                                  <option value="English">English</option>
+                                  <option value="Swedish">Swedish</option>
+                                  <option value="Norweign">Norweign</option>
+                                </select></dd>
+                       </dl>
+                    </div>
+             </div>
+
+
+                <div class="container">
+
+                @{
+                    if (!Model.success && Model.attempts > 0)
+                    {
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Email or password are incorrect" name="email" required>
+                    }
+                    else
+                    {
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                    }
+
+                    }
+                    <label for="pass"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="pass" required>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                    <button type="submit">Login</button>
+                </div>
+                
+             </form>
+            
+                <form action="Register">
+                   <button type="submit" >Register Account</button>
+                </form>
+             
+                <div class="container">
+                    <span class="pass">Forgot <a href="#">password?</a></span>
+                </div>
+            
+        </main>
+</body>

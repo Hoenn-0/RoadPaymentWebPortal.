@@ -1,0 +1,300 @@
+﻿
+/* Styling for all pages*/
+
+/* Styling the header */
+h1 {
+    text-align: center;
+    margin: 50px 0px 50px 0px;
+}
+
+/* Styling the input boxes */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Creating the main container UI for all screens */
+#main-holder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: #c6e2e9;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 2px black;
+}
+
+/* Creating the button style for all screens */
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+    /* Changing opacity so user knows when hovering over item */
+    button:hover {
+        opacity: 0.9;
+    }
+
+/* postioning the settings cog */
+.imgcontainer {
+    text-align: right;
+    margin: 20px 50px 10px 20px;
+}
+/* styling the settings cog */
+img.setting {
+    width: 5%;
+    border-radius: 50%;
+}
+    /* Changing opacity so user knows when hovering over item */
+    img.setting:hover {
+        opacity: 0.6;
+    }
+
+
+
+
+
+
+
+
+
+
+
+/* styling the settings button */
+
+/* slightly greying out the backgorund */
+.popup .overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
+/* creating a white background pop up screen*/
+.popup .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background: #fff;
+    width: 500px;
+    height: 450px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: "Open Sans",sans-serif;
+}
+
+/* creating a close button inside the pop up */
+.popup .close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+/* creating a display in style block */
+.popup.active .overlay {
+    display: block;
+}
+/* positioning the content in the content */
+.popup.active .content {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+/* Styling for index / register pages */
+
+
+/* Creating the back button style for register page */
+.backbtn {
+    margin: 20px 0px 0px -800px;
+    width: auto;
+    padding: 10px 18px;
+    background-color: #c6e2e9;
+    color: black;
+    font-weight:bold;
+    
+}
+
+/* Changing opacity so user knows when hovering over item */
+backbtn:hover {
+    opacity: 0.6;
+    
+}
+/* Styling the register button */
+.registerbtn {
+    width: auto;
+    padding: 14px 20px;
+    align-items: center;
+}
+
+
+
+/* basic container for login and register pages*/
+.container {
+    padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Creating Homepage and Adminpage */
+
+/* Styling seacrh box so will be on left  */
+.searchBox{
+    display:flex;
+    flex-grow:1;
+}
+
+/* Styling the table */
+table, th, td {
+    background-color: #c6e2e9;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* Ensure proper sizing */
+* {
+    box-sizing: border-box;
+    border-radius: 7px;
+    
+
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 5px 2px black;
+    margin: 20px 30px 20px 30px;
+    text-align: center;
+}
+
+/* Create three unequal columns that sits next to each other */
+
+/* top coloumn for search and textbox */
+.top {
+    flex: 100%;
+    height: 120px;
+    background-color: #CCE2CB;
+    padding: 20px;
+}
+
+
+/* left column for various buttons */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column for table */
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Postioning the table in the column */
+.table {
+    width: auto;
+    min-height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* creating a pass to payment button */
+.payment {
+    width: 50%;
+    padding: 14px 20px;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Stylign the payment page */
+
+
+
+/* Holding the different credit cards */
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+/* Styling the button to pay */
+.btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+    /* Changing opacity so user knows when hovering over item */
+    .btn:hover {
+        background-color: #45a049;
+    }
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+﻿@page
+@model CSSD_project.Pages.HomepageModel
+@{
+
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/css/base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+</head>
+
+<body>
+    <main id="main-holder">
+
+
+        
+         <h1>Bills for @Model.name</h1>
+         
+         <div class="imgcontainer">
+                   
+                    <img src="~/images/settings.png" alt="Setting" class="setting" onclick="togglePopup()">
+         </div>
+
+         <div class="popup" id="popup-1">
+            <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup()">&times;</div>
+                    <h1>Settings</h1>
+                    <dl>
+                        <dt><label for="font size"><b>Change font size</b></label></dt>
+                        <dd><select name="Font Size" id="Font Size">
+                              <option value="large">Large</option>
+                              <option value="medium">Medium</option>
+                              <option value="small">Small</option>
+                            </select></dd>
+                        <dt><label for="Language"><b>Change Language</b></label></dt>
+                        <dd><select name="Font Size" id="Font Size">
+                              <option value="English">English</option>
+                              <option value="Swedish">Swedish</option>
+                              <option value="Norweign">Norweign</option>
+                            </select></dd>
+                        <dt><label for="Logout"><b>Logout</b></label></dt>
+                        <dd> <button onclick="window.location='index'" type="button">Logout Here</button></dd> 
+                   </dl>
+                </div>
+         </div>
+
+
+         <div class="row">
+          <div class="side">
+              <dl>
+                <dt>Information</dt> 
+                <dd>Please click on one of the buttons</dd>
+                <dt><label for="See Unpaid Bills"><b>See Unpaid Bills</b></label></dt>
+                <dd><form asp-page-handler="unpaid" asp-route-id="@Model.currentUserId" method="post"><button type="submit">Unpaid Bills</button></form></dd>
+                <dt><label for="All Bills"><b>See All Bills</b></label></dt>
+                <dd><form asp-page-handler="both" asp-route-id="@Model.currentUserId" method="post"><button type="submit">All Bills</button></form></dd>
+                <dt><label for="See Paid Bills"><b>See Paid Bills</b></label></dt>
+                <dd><form asp-page-handler="paid" asp-route-id="@Model.currentUserId" method="post"><button type="submit">Paid Bills</button></form></dd> 
+            </dl>
+    
+          </div>
+          <div class="main">
+
+              <label>@Model.label</label>
+
+              <div class="table">
+                  <table>
+                      <tr>
+                          <th>Highway</th>
+                          <th>Distance</th>
+                          <th>Price per KM</th>
+                          <th>Total price</th>
+                          @{ 
+                              if (Model.showUnpaid && Model.showPaid)
+                              {
+                                  <th>Status</th>
+                              }
+                          }
+                            
+                      </tr>
+                      @{foreach (var bill in Model.bills)
+                          {
+                              if (Model.showUnpaid)
+                              {
+                                  if (bill[3] == "False")
+
+                                  {
+                                            <tr>
+                                                <td>@bill[0]</td>
+                                                <td>@bill[1]</td>
+                                                <td>@((float)Model.editor.getKmPricebyHighway(bill[0]))p</td>
+                                                <td>@bill[2]p</td>
+                                                @if (Model.showUnpaid && Model.showPaid)
+                                                {
+                                                <td>Unpaid</td>
+                                                }
+                                            </tr>
+                                  }
+                              }
+                              if (Model.showPaid)
+                              {
+                                  if (bill[3] == "True")
+                                  {
+                                      <tr>
+                                          <td>@bill[0]</td>
+                                          <td>@bill[1]</td>
+                                          <td>@((float)Model.editor.getKmPricebyHighway(bill[0]))p</td>
+                                          <td>@bill[2]p</td>
+                                          @if (Model.showUnpaid && Model.showPaid)
+                                                {
+                                                <td>Paid</td>
+                                                }
+                                      </tr>
+                                  }
+                              }
+                          }
+                      }
+                  </table>
+                </div>
+          </div>
+        </div>
+        <div class="payment">
+            <form asp-page-handler="pay" asp-route-id="@Model.currentUserId" method="post"><button type="submit">Pay Bills</button></form>
+        </div>
+    </main>
+
+
+
+</body>

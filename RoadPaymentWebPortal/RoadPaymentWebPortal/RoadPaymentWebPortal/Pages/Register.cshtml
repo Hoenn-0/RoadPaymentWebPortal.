@@ -1,0 +1,88 @@
+﻿@page
+@model CSSD_project.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/css/base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+
+</head>
+<body>
+    <main id="main-holder">
+
+        <button onclick="history.back()" class="backbtn">Go Back</button>
+        <h1>Register Here</h1>
+
+        <form asp-page-handler="register" method="post" autocomplete="off">
+
+            <div class="imgcontainer">
+                   
+                <img src="~/images/settings.png" alt="Setting" class="setting" onclick="togglePopup()">
+            </div>
+
+            <div class="popup" id="popup-1">
+                <div class="overlay"></div>
+                    <div class="content">
+                        <div class="close-btn" onclick="togglePopup()">&times;</div>
+                        <h1>Settings</h1>
+                        <dl>
+                            <dt><label for="font size"><b>Change font size</b></label></dt>
+                            <dd><select name="Font Size" id="Font Size">
+                                  <option value="large">Large</option>
+                                  <option value="medium">Medium</option>
+                                  <option value="small">Small</option>
+                                </select></dd>
+                            <dt><label for="Language"><b>Change Language</b></label></dt>
+                            <dd><select name="Font Size" id="Font Size">
+                                  <option value="English">English</option>
+                                  <option value="Swedish">Swedish</option>
+                                  <option value="Norweign">Norweign</option>
+                                </select></dd>
+                       </dl>
+                    </div>
+            </div>
+
+
+            <div class="container">
+                
+                <p>Please fill in this form to create an account.</p>
+
+                <label for="fName"><b>First Name</b></label>
+                <input type="text" placeholder="Enter first name" name="fName" required>
+
+                <label for="lName"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter last name" name="lName" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="pass"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pass" required>
+
+                <label for="pass-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="pass-repeat" required>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                </label>
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                <div class="clearfix">
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+        <div class="container">
+            <span class="pass">Forgot <a href="#">password?</a></span>
+        </div>
+
+    </main>
+</body>
+</html>
